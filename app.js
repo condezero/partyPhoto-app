@@ -7,7 +7,7 @@ const cameraView = document.querySelector("#camera--view"),
     cameraSensor = document.querySelector("#camera--sensor"),
     cameraTrigger = document.querySelector("#camera--trigger")
 
-    let supports = navigator.mediaDevices.getSupportedConstraints();
+let supports = navigator.mediaDevices.getSupportedConstraints();
 if( supports['facingMode'] === true ) {
   flipBtn.disabled = false;
 }
