@@ -1,5 +1,6 @@
 // Set constraints for the video stream
 var constraints = { video: { facingMode: "user" }, audio: false };
+let shouldFaceUser = true;
 let flipBtn = document.querySelector('#flip-btn');
 // Define constants
 const cameraView = document.querySelector("#camera--view"),
@@ -33,11 +34,6 @@ cameraTrigger.onclick = function() {
     cameraOutput.classList.add("taken");
 };
 flipBtn.addEventListener('click', function(){
-    if( stream == null ) return
-    
-    stream.getTracks().forEach(t => {
-      t.stop();
-    });
     shouldFaceUser = !shouldFaceUser;
     cameraStart();
   });
