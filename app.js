@@ -13,6 +13,7 @@ if( supports['facingMode'] === true ) {
 }
 // Access the device camera and stream to cameraView
 function cameraStart() {
+  constraints.video = { facingMode: shouldFaceUser ? 'user' : 'environment' }
     navigator.mediaDevices
         .getUserMedia(constraints)
         .then(function(stream) {
@@ -37,8 +38,8 @@ flipBtn.addEventListener('click', function(){
     stream.getTracks().forEach(t => {
       t.stop();
     });
-    
     shouldFaceUser = !shouldFaceUser;
+    cameraStart();
   });
 // Start the video stream when the window loads
 window.addEventListener("load", cameraStart, false);
